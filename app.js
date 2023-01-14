@@ -11,10 +11,11 @@ const container = document.querySelector('.container');
 // 1. Creating new list element (task) on click:
 
 btnCreate.addEventListener('click', () => {
-    const newItem = document.createElement('li');
-    console.log(newItem)
-    newItem.textContent = input.value;
-    container.append(newItem);
+    //const newItem = document.createElement('li');
+    //newItem.textContent = input.value;
+    //container.append(newItem);
+    container.insertAdjacentHTML('afterbegin', `<li>${input.value}</li>`);
+    input.value = '';
 });
 
 // 2. Toggle button for show/hide list (task) items:
