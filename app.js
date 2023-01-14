@@ -1,4 +1,4 @@
-// 1) Capturing buttons:
+// 1) Capturing buttons and elements as selectors:
 const btnCreate = document.querySelector('.btn-main');
 const btnToggle = document.querySelector('.btn-toggle');
 const btnRemove = document.querySelector('.btn-remove');
@@ -8,13 +8,35 @@ const containerAll = document.querySelector('.list-container');
 const container = document.querySelector('.container');
 
 
+// Attach button to every list element function:
+function attachRemoveButton(li) {
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.textContent = 'Remove';
+    button.className = 'remove';
+    console.log(button);
+    li.append(button);
+
+}
+
+//Capturing list items as container children, then looping over to attach remove button:
+const taskItems = container.children;
+for (let i = 0; i<taskItems.length; i++ ) {
+    attachRemoveButton(taskItems[i]);
+
+}
+
+
+
+
 // 1. Creating new list element (task) on click:
 
 btnCreate.addEventListener('click', () => {
-    //const newItem = document.createElement('li');
-    //newItem.textContent = input.value;
-    //container.append(newItem);
-    container.insertAdjacentHTML('afterbegin', `<li>${input.value}</li>`);
+    const newItem = document.createElement('li');
+    newItem.textContent = input.value;
+    container.append(newItem);
+    attachRemoveButton(newItem); //attaching remove button for every new element
+    //container.insertAdjacentHTML('afterbegin', `<li>${input.value}</li>`);
     input.value = '';
 });
 
@@ -31,18 +53,18 @@ btnToggle.addEventListener('click', () => {
     }
 });
 
-// 3. Remove last Item (task) button:
+// 3. Remove last Item (task) button at the end:
 btnRemove.addEventListener('click', () => {
  const lastItem = document.querySelector('li:last-child');
  lastItem.remove();
 })
 
-
 // 4. Hover over list Items functionallity (tyrning list items to UpperCase when mouse over):
 
-containerAll.addEventListener('mouseover', (event) => {
-    console.log(event.target)
-    if (event.target.tagName === 'LI') {
-     event.target.textContent = event.target.textContent.toUpperCase();
-}   
-});
+//containerAll.addEventListener('mouseover', (event) => {
+//    console.log(event.target)
+//    if (event.target.tagName === 'LI') {
+//     event.target.textContent = event.target.textContent.toUpperCase();
+//}   
+//});
+
