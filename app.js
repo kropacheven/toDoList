@@ -1,6 +1,7 @@
 // 1) Capturing buttons:
 const btnCreate = document.querySelector('.btn-main');
 const btnToggle = document.querySelector('.btn-toggle');
+const btnRemove = document.querySelector('.btn-remove');
 
 const input  = document.querySelector('.input-main');
 const containerAll = document.querySelector('.list-container');
@@ -16,7 +17,6 @@ btnCreate.addEventListener('click', () => {
     container.append(newItem);
 });
 
-
 // 2. Toggle button for show/hide list (task) items:
 
 btnToggle.addEventListener('click', () => {
@@ -29,3 +29,9 @@ btnToggle.addEventListener('click', () => {
         btnToggle.textContent = 'Show List';
     }
 });
+
+// 3. Remove last Item (task) button:
+btnRemove.addEventListener('click', () => {
+ const lastItem = document.querySelector('li:last-child');
+ lastItem.remove();
+})
