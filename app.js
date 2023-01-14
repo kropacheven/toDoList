@@ -36,3 +36,13 @@ btnRemove.addEventListener('click', () => {
  const lastItem = document.querySelector('li:last-child');
  lastItem.remove();
 })
+
+
+// 4. Hover over list Items functionallity (tyrning list items to UpperCase when mouse over):
+
+containerAll.addEventListener('mouseover', (event) => {
+    console.log(event.target)
+    if (event.target.tagName === 'LI') {
+     event.target.textContent = event.target.textContent.toUpperCase();
+}   
+});
