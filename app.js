@@ -1,4 +1,4 @@
-// 1) Capturing buttons and elements as selectors:
+// Capturing buttons and elements as selectors:
 const btnCreate = document.querySelector('.btn-main');
 const btnToggle = document.querySelector('.btn-toggle');
 const btnRemove = document.querySelector('.btn-remove');
@@ -14,7 +14,7 @@ function attachRemoveButton(li) {
     button.type = 'button';
     button.textContent = 'Remove';
     button.className = 'remove';
-    console.log(button);
+    //console.log(button);
     li.append(button);
 
 }
@@ -54,10 +54,10 @@ btnToggle.addEventListener('click', () => {
 });
 
 // 3. Remove last Item (task) button at the end:
-btnRemove.addEventListener('click', () => {
- const lastItem = document.querySelector('li:last-child');
- lastItem.remove();
-})
+// btnRemove.addEventListener('click', () => {
+//  const lastItem = document.querySelector('li:last-child');
+//  lastItem.remove();
+// })
 
 // 4. Hover over list Items functionallity (tyrning list items to UpperCase when mouse over):
 
@@ -68,3 +68,13 @@ btnRemove.addEventListener('click', () => {
 //}   
 //});
 
+// 5. Programming every small remove button for every list item:
+
+container.addEventListener('click', (event) => {
+   if (event.target.tagName === 'BUTTON') {
+    const button = event.target;
+    const li = button.parentNode;
+    console.log (li);
+    li.remove();
+}   
+});
